@@ -1,0 +1,22 @@
+{
+  "publicPath": "/wp-content/themes/my_portfolio/public/",
+  "dev": {
+    "protocol": "http:",
+    "hostname": "localhost",
+    "hash": "",
+    "search": "",
+    "pathname": "/",
+    "path": "/",
+    "href": "http://localhost:3011/",
+    "port": 3011
+  },
+  "proxy": {
+    "protocol": "http:",
+    "hostname": "localhost",
+    "hash": "",
+    "search": "",
+    "pathname": "/wordpress-sage",
+    "path": "/wordpress-sage",
+    "href": "http://localhost/wordpress-sage"
+  }
+}
