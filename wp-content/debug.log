@@ -1,0 +1,20 @@
+[10-Oct-2024 11:02:32 UTC] PHP Fatal error:  Uncaught Exception: The /var/www/html/wordpress-sage/wp-content/cache/acorn/framework/cache directory must be present and writable. in /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Illuminate/Foundation/PackageManifest.php:178
+Stack trace:
+#0 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Roots/Acorn/PackageManifest.php(91): Illuminate\Foundation\PackageManifest->write()
+#1 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Illuminate/Foundation/PackageManifest.php(107): Roots\Acorn\PackageManifest->build()
+#2 /var/www/html/wordpress-sage/wp-content/themes/
+/vendor/roots/acorn/src/Illuminate/Foundation/PackageManifest.php(90): Illuminate\Foundation\PackageManifest->getManifest()
+#3 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Illuminate/Foundation/PackageManifest.php(79): Illuminate\Foundation\PackageManifest->config()
+#4 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Roots/Acorn/Bootstrap/RegisterFacades.php(25): Illuminate\Foundation\PackageManifest->aliases()
+#5 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Illuminate/Foundation/Application.php(263): Roots\Acorn\Bootstrap\RegisterFacades->bootstrap()
+#6 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Illuminate/Foundation/Http/Kernel.php(186): Illuminate\Foundation\Application->bootstrapWith()
+#7 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Roots/Acorn/Bootloader.php(187): Illuminate\Foundation\Http\Kernel->bootstrap()
+#8 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Roots/Acorn/Bootloader.php(103): Roots\Acorn\Bootloader->bootHttp()
+#9 /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/functions.php(43): Roots\Acorn\Bootloader->boot()
+#10 /var/www/html/wordpress-sage/wp-settings.php(668): include('...')
+#11 /var/www/html/wordpress-sage/wp-config.php(98): require_once('...')
+#12 /var/www/html/wordpress-sage/wp-load.php(50): require_once('...')
+#13 /var/www/html/wordpress-sage/wp-blog-header.php(13): require_once('...')
+#14 /var/www/html/wordpress-sage/index.php(17): require('...')
+#15 {main}
+  thrown in /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/vendor/roots/acorn/src/Illuminate/Foundation/PackageManifest.php on line 178
