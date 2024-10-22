@@ -1,31 +1,38 @@
-<header class="banner">
-  <nav class="navbar navbar-expand-sm bg-light fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="<?php echo e(home_url('/')); ?>">
-        <?php echo $siteName; ?>
+<!-- ======= Mobile nav toggle button ======= -->
+<i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<!-- ======= Header ======= -->
+<header id="header">
+  <div class="d-flex flex-column">
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <?php if(has_nav_menu('primary_navigation')): ?>
-          <ul class="navbar-nav mx-auto"> <!-- Changed from 'me-auto' to 'mx-auto' -->
-            <?php echo wp_nav_menu([
-                'theme_location' => 'primary_navigation',
-                'items_wrap' => '<ul class="navbar-nav mx-auto">%3$s</ul>',
-                'echo' => false
-            ]); ?>
+    <div class="profile">
+      <img src="assets/img/profile_image.png" alt class="img-fluid rounded-circle">
+      <h1 class="text-light"><a href="index.html">Ahmad Yar</a></h1>
+      <p class="text-light text-center">I'm <span class="typed"
+          data-typed-items="Software Engineer, Full Stack Developer"></span>
+      </p>
 
-
-          </ul>
-        <?php endif; ?>
-
-        
+      <div class="social-links mt-3 text-center">
+        <a href="javascript::void(0)" class="google-plus" title="ahmad.yar@786"><i class="bx bxl-skype"></i></a>
+        <a href="https://www.linkedin.com/in/ahmad-yar-9b3627178/" class="linkedin" target="_blank"><i
+            class="bx bxl-linkedin"></i></a>
       </div>
-      <div class="d-flex text-dark"><?php get_search_form(); ?></div>
-
     </div>
-  </nav>
-</header><?php /**PATH /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/resources/views/sections/header.blade.php ENDPATH**/ ?>
+
+    <nav id="navbar" class="nav-menu navbar">
+      <?php if(has_nav_menu('primary_navigation')): ?>
+        <ul class="navbar-nav "> <!-- Changed from 'me-auto' to 'mx-auto' -->
+          <?php echo wp_nav_menu([
+              'theme_location' => 'primary_navigation',
+              'items_wrap' => '<ul class="navbar-nav mx-auto">%3$s</ul>',
+              'echo' => false
+          ]); ?>
+
+
+        </ul>
+      <?php endif; ?>
+    </nav><!-- .nav-menu -->
+  </div>
+</header><!-- End Header -->
+
+<!-- ======= Hero Section ======= --><?php /**PATH /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/resources/views/sections/header.blade.php ENDPATH**/ ?>
