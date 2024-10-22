@@ -24,7 +24,7 @@
           <div class="col-lg-6">
             <ul>
               <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
-                <span>+{{$profile['fields']['phone']}}</span>
+                <span>{{$profile['fields']['phone']}}</span>
               </li>
               <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
                 <span>{{$profile['fields']['city']}}</span>

@@ -23,7 +23,7 @@
           <div class="col-lg-6">
             <ul>
               <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
-                <span>+<?php echo e($profile['fields']['phone']); ?></span>
+                <span><?php echo e($profile['fields']['phone']); ?></span>
               </li>
               <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
                 <span><?php echo e($profile['fields']['city']); ?></span>
