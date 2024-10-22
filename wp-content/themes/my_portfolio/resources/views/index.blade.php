@@ -2,5 +2,102 @@
 
 @section('content')
 
-   <h1>index page</h1>
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>{{ $profile['title'] }}</h2>
+      <p class="text-justify">
+        Hi i am, <strong>{{$profile['fields']['person_name']}}</strong> {{$profile['fields']['profile_detail']}}
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4" data-aos="fade-right">
+        <img src="{{$profile['fields']['person_image']}}" class="img-fluid rounded-3" alt>
+      </div>
+      <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+        <h3>{{$profile['fields']['position']}}</h3>
+        <p class="fst-italic mb-4 mt-4">
+          <strong> Basic information: </strong>
+        </p>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                <span>+{{$profile['fields']['phone']}}</span>
+              </li>
+              <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
+                <span>{{$profile['fields']['city']}}</span>
+              </li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Country:</strong>
+                <span>{{$profile['fields']['country']}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong>
+                <span>{{$profile['fields']['degree']}}</span>
+              </li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
+                <span>{{$profile['fields']['email']}}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ======= Facts Section ======= -->
+    <section id="facts" class="facts">
+      <div class>
+
+        <div class="section-title">
+          <p class="text-justify">
+            {{$profile['fields']['proven_track_description']}}
+          </p>
+        </div>
+
+        <div class="row no-gutters">
+            @foreach ($profile['accomplishments'] as $accomplishment)
+                <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+                    <div class="count-box d-flex flex-column align-items-center justify-content-center text-center">
+                        <img src="{{ $accomplishment['image'] }}" class="img-fluid rounded-4 mb-3" alt="" style="max-height: 100px; object-fit: cover;">
+                        <span data-purecounter-start="0" data-purecounter-end="{{ $accomplishment['description'] }}" data-purecounter-duration="1" class="purecounter"></span>
+                        <p><strong>{{ $accomplishment['name'] }}</strong></p>
+                    </div>
+                </div>
+            @endforeach    
+        </div>
+
+
+      </div>
+    </section><!-- End Facts Section -->
+  </div>
+</section><!-- End About Section -->
+<section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="row skills-content">
+              @foreach ($profile['skills'] as $skill)
+                <div class="col-lg-6 col-md-6 " data-aos="fade-up">
+                  <div class="progress">
+                      <span class="skill">{{ $skill['name'] }} <i class="val">{{ $skill['description'] }}%</i></span>
+                      <div class="progress-bar-wrap">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="{{ $skill['description'] }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $skill['description'] }}%;">
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              @endforeach
+          
+        </div>
+
+
+      </div>
+    </section><!-- End Skills Section -->
+
 @endsection

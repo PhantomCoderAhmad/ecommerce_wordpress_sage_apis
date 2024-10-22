@@ -64,15 +64,6 @@ collect(['setup', 'filters'])
         }
     });
 
-
-    function enqueue_bootstrap() {
-        // Enqueue Bootstrap CSS
-        wp_enqueue_style('bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
-    
-        // Enqueue Bootstrap JS (no need for jQuery in Bootstrap 5)
-        wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js', [], null, true);
-    }
-    add_action('wp_enqueue_scripts', 'enqueue_bootstrap');
     
     if ( ! function_exists( 'my_portfolio_support' ) ) :
 

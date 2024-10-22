@@ -15,9 +15,9 @@
         <img src="<?php echo e($profile['fields']['person_image']); ?>" class="img-fluid rounded-3" alt>
       </div>
       <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-        <h3><strong>Position: </strong><?php echo e($profile['fields']['position']); ?></h3>
-        <p class="fst-italic">
-          Basic information:
+        <h3><?php echo e($profile['fields']['position']); ?></h3>
+        <p class="fst-italic mb-4 mt-4">
+          <strong> Basic information: </strong>
         </p>
         <div class="row">
           <div class="col-lg-6">
@@ -74,6 +74,31 @@
     </section><!-- End Facts Section -->
   </div>
 </section><!-- End About Section -->
+<section id="skills" class="skills section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Skills</h2>
+        </div>
+
+        <div class="row skills-content">
+              <?php $__currentLoopData = $profile['skills']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $skill): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <div class="col-lg-6 col-md-6 " data-aos="fade-up">
+                  <div class="progress">
+                      <span class="skill"><?php echo e($skill['name']); ?> <i class="val"><?php echo e($skill['description']); ?>%</i></span>
+                      <div class="progress-bar-wrap">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo e($skill['description']); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo e($skill['description']); ?>%;">
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          
+        </div>
+
+
+      </div>
+    </section><!-- End Skills Section -->
 
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/resources/views/index.blade.php ENDPATH**/ ?>

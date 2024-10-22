@@ -5,8 +5,7 @@
 <header id="header">
   <div class="d-flex flex-column">
 
-    <div class="profile">
-      <img src="assets/img/profile_image.png" alt class="img-fluid rounded-circle">
+    <div class="profile mt-5">
       <h1 class="text-light"><a href="index.html">Ahmad Yar</a></h1>
       <p class="text-light text-center">I'm <span class="typed"
           data-typed-items="Software Engineer, Full Stack Developer"></span>
