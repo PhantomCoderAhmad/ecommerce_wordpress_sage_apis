@@ -41,7 +41,7 @@
     <script src="{{ asset('assets/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('assets/typed.js/typed.umd.js') }}"></script>
     <script src="{{ asset('assets/waypoints/noframework.waypoints.js') }}"></script>
-    <script src="{{ asset('assets/php-email-form/validate.js') }}"></script>
+
 
     <!-- Template Main JS File -->
     <script src="{{ asset('assets/js/main.js') }}"></script>

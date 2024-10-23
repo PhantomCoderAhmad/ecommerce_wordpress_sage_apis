@@ -122,4 +122,144 @@
       </div>
     </section><!-- End Services Section -->
 
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container">
+
+          <div class="section-title">
+            <h2>Contact</h2>
+            <p></p>
+          </div>
+
+          <div class="row" data-aos="fade-in">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+              <div class="info ">
+                <div class="address">
+                  <i class="bi bi-geo-alt"></i>
+                  <h4>Location:</h4>
+                  <p>Sanda Khurd Lahore, Pakistan</p>
+                </div>
+
+                <div class="email">
+                  <i class="bi bi-envelope"></i>
+                  <h4>Email:</h4>
+                  <p>{{$profile['fields']['email']}}</p>
+                </div>
+
+                <div class="phone">
+                  <i class="bi bi-phone"></i>
+                  <h4>Call:</h4>
+                  <p>{{$profile['fields']['phone']}}</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+              <form id="contact-form" class="php-email-form">
+                  <div class="row">
+                      <div class="form-group col-md-6">
+                          <label for="name">Your Name</label>
+                          <input type="text" name="name" class="form-control" id="name" >
+                      </div>
+                      <div class="form-group col-md-6">
+                          <label for="email">Your Email</label>
+                          <input type="text" class="form-control" name="email" id="email" >
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="subject">Subject</label>
+                      <input type="text" class="form-control" name="subject" id="subject" >
+                  </div>
+                  <div class="form-group">
+                      <label for="message">Message</label>
+                      <textarea class="form-control" name="message" rows="10" ></textarea>
+                  </div>
+                  <div class="my-3">
+                      <div class="loading d-none">Loading...</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message bg-success d-none"></div>
+                  </div>
+                  <div class="text-center">
+                      <button id="contact-btn" type="submit">Send Message</button>
+                  </div>
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+    </section>
+    <!-- ======= Contact Section End ======= -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Set up CSRF token for AJAX requests
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('#contact-form').on('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Clear previous messages
+        $('.error-message').text('');
+        $('.sent-message').addClass('d-none');
+        $('.loading').removeClass('d-none');
+
+        // Collect form data
+        var formData = $(this).serialize(); // Serializes the form's elements.
+
+        // AJAX request
+        $.ajax({
+            type: 'POST',
+            url: '{{ route('contact.send') }}',
+            data: formData,
+            dataType: 'json', 
+            success: function(response) {
+                if (response && response.message) {
+                    $('.sent-message').removeClass('d-none');
+                    $('.sent-message').addClass('d-block');
+                    $('.sent-message').html(response.message);
+                    
+                    $('#contact-form')[0].reset(); 
+                    setTimeout(function() { 
+                      $('.sent-message').addClass('d-none');
+                    }, 2000);
+                } else {
+                    $('.error-message').append('<p>Unexpected response structure.</p>');
+                }
+                $('.loading').addClass('d-none'); // Hide loading
+            },
+            error: function(xhr) {
+                                
+                $('.loading').addClass('d-none'); 
+                var errors = xhr.responseJSON.errors; 
+                
+                if (errors) {
+                  $('.error-message').removeClass('d-none');
+                  $('.error-message').addClass('d-block');
+                  setTimeout(function() { 
+                    $('.error-message').addClass('d-none');
+                  }, 2000);
+                    for (var key in errors) {
+                        if (errors.hasOwnProperty(key)) {
+                            $('.error-message').append('<p>' + errors[key][0] + '</p>'); 
+                        }
+                    }
+                } else {
+                    $('.error-message').append('<p>Something went wrong. Please try again later.</p>'); 
+                }
+            }
+        });
+    });
+});
+
+</script>
+
+
 @endsection

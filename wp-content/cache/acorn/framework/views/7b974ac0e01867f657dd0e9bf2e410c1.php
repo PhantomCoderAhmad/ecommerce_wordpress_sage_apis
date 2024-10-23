@@ -41,7 +41,7 @@
     <script src="<?php echo e(asset('assets/swiper/swiper-bundle.min.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/typed.js/typed.umd.js')); ?>"></script>
     <script src="<?php echo e(asset('assets/waypoints/noframework.waypoints.js')); ?>"></script>
-    <script src="<?php echo e(asset('assets/php-email-form/validate.js')); ?>"></script>
+
 
     <!-- Template Main JS File -->
     <script src="<?php echo e(asset('assets/js/main.js')); ?>"></script>
