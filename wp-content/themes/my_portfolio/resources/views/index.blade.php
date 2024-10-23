@@ -100,4 +100,26 @@
       </div>
     </section><!-- End Skills Section -->
 
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Areas of Expertise</h2>
+        </div>
+
+        <div class="row">
+          @foreach ($profile['expertise'] as $experties)
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+             
+              <div class="icon"><img src="{{ $experties['image'] }}" class="img-fluid rounded-4 mb-3" alt="" style="max-height: 100px; object-fit: cover;"></i></div>
+              <h4 class="title"><a href>{{ $experties['name'] }}</a></h4>
+              <p class="description text-justify">{{ $experties['description'] }}</p>
+            </div>
+          @endforeach
+          
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
 @endsection

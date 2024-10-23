@@ -100,5 +100,27 @@
       </div>
     </section><!-- End Skills Section -->
 
+    <section id="services" class="services">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Areas of Expertise</h2>
+        </div>
+
+        <div class="row">
+          <?php $__currentLoopData = $profile['expertise']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $experties): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+             
+              <div class="icon"><img src="<?php echo e($experties['image']); ?>" class="img-fluid rounded-4 mb-3" alt="" style="max-height: 100px; object-fit: cover;"></i></div>
+              <h4 class="title"><a href><?php echo e($experties['name']); ?></a></h4>
+              <p class="description text-justify"><?php echo e($experties['description']); ?></p>
+            </div>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+          
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /var/www/html/wordpress-sage/wp-content/themes/my_portfolio/resources/views/index.blade.php ENDPATH**/ ?>

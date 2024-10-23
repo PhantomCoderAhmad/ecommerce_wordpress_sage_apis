@@ -25,6 +25,7 @@ class FrontPage extends Controller
                 // Fetch accomplishments
                 $accomplishments = $this->getAccomplishments();
                 $skills = $this->getSkills();
+                $expertise = $this->getExpertise();
 
 
                 $profile = [
@@ -33,10 +34,12 @@ class FrontPage extends Controller
                     'fields' => $project_fields,
                     'accomplishments' => $accomplishments,
                     'skills' => $skills,
+                    'expertise' => $expertise
                 ];
             }
             wp_reset_postdata();
         }
+        // dd($profile);
         return view('index', [
             'profile' => $profile,
         ]);
@@ -74,6 +77,26 @@ class FrontPage extends Controller
                     'name' => $term->name,
                     'slug' => $term->slug,
                     'description' => $term->description,
+                ];
+            }
+        }
+        return $data;
+    }
+    private function getExpertise()
+    {
+        $terms = get_the_terms(get_the_ID(), "expertise");
+        
+        $data = [];
+
+        if (!is_wp_error($terms) && $terms) {
+            foreach ($terms as $term) {
+                $term_image = get_field('expertise_image', 'expertise_' . $term->term_id);
+                $data[] = [
+                    'term_id' => $term->term_id,
+                    'name' => $term->name,
+                    'slug' => $term->slug,
+                    'description' => $term->description,
+                    'image' => $term_image, // Include the image field for expertise
                 ];
             }
         }
